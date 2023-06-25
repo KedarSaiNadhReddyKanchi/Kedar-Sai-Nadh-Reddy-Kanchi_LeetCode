@@ -38,6 +38,5 @@ class Solution(object):
             temp = temp.next
             second = second + 1
         
-        print(mid.val)
-        print(mid)
+        
         return mid
