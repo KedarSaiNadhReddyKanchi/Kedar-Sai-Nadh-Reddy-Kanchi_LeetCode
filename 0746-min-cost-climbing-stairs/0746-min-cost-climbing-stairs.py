@@ -44,7 +44,7 @@ class Solution(object):
                         minimumCost = finalstepcost
             idx = idx - 1
         
-        print(minimumCost)
+        # print(minimumCost)
         return minimumCost
             
                 
