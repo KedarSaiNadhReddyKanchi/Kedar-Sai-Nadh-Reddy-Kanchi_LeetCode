@@ -6,15 +6,6 @@ class Solution(object):
         :rtype: bool
         """
         
-        
-        ransomNoteCharacterMap = {}
-        ransomNoteList = list(ransomNote)
-        for char in ransomNoteList:
-            if char in ransomNoteCharacterMap:
-                ransomNoteCharacterMap[char] = ransomNoteCharacterMap[char] + 1
-            else:
-                ransomNoteCharacterMap[char] = 1
-                
         magazineCharacterMap = {}
         magazineList = list(magazine)
         for char in magazineList:
@@ -22,6 +13,20 @@ class Solution(object):
                 magazineCharacterMap[char] = magazineCharacterMap[char] + 1
             else:
                 magazineCharacterMap[char] = 1
+        
+        ransomNoteCharacterMap = {}
+        ransomNoteList = list(ransomNote)
+        for char in ransomNoteList:
+            
+            if char not in magazineCharacterMap:
+                return False
+            
+            if char in ransomNoteCharacterMap:
+                ransomNoteCharacterMap[char] = ransomNoteCharacterMap[char] + 1
+            else:
+                ransomNoteCharacterMap[char] = 1
+                
+        
         
         print(ransomNoteCharacterMap)
         print(magazineCharacterMap)
