@@ -6,6 +6,9 @@ class Solution(object):
         :rtype: bool
         """
         
+        if len(ransomNote) > len(magazine):
+            return False
+        
         magazineCharacterMap = {}
         magazineList = list(magazine)
         for char in magazineList:
