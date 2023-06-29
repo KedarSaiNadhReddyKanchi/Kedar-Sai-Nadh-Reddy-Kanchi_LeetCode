@@ -31,14 +31,13 @@ class Solution(object):
 
         potions.sort()
         sorted_potions_list = potions
-        # print("sorted potions = ", sorted_potions)
+        
         
         end_index = len(potions) - 1
         sorted_potions = {}
         
         for idx in range ( 0 , (end_index + 1)):
             sorted_potions[idx] = sorted_potions_list[idx]
-        print("sorted potions = ", sorted_potions.values())
         
         
         for spell in spells:
@@ -69,8 +68,7 @@ class Solution(object):
             else:
                 count = len(potions) - least_possible_index
                 pairs.append(count)
-        # print("sorted potions = ", sorted_potions)
-        print("pairs = ", pairs)
+
         return pairs           
 
 
