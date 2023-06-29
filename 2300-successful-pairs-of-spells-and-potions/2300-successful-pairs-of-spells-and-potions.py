@@ -30,14 +30,14 @@ class Solution(object):
         # and that is why we need to sort the potions array first
 
         potions.sort()
-        sorted_potions_list = potions
+        sorted_potions = potions
         
         
         end_index = len(potions) - 1
-        sorted_potions = {}
+        # sorted_potions = {}
         
-        for idx in range ( 0 , (end_index + 1)):
-            sorted_potions[idx] = sorted_potions_list[idx]
+        # for idx in range ( 0 , (end_index + 1)):
+        #     sorted_potions[idx] = sorted_potions_list[idx]
         
         
         for spell in spells:
