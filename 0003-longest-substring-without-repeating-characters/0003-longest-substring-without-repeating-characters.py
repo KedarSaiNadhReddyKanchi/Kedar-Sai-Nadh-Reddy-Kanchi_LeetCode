@@ -22,13 +22,13 @@ class Solution(object):
                     max_count = running_count
                 index = index + 1
             else:
-                if running_count > max_count:
-                    max_count = running_count
+                # if running_count > max_count:
+                #     max_count = running_count
                 removed_character = longest_substsring.pop(0)
                 hashMap.pop(removed_character)
                 # index = index - 1
                 running_count = running_count - 1
         
-        print(longest_substsring)
-        print(max_count)
+        # print(longest_substsring)
+        # print(max_count)
         return max_count
