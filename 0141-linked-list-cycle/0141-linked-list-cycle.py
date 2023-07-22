@@ -40,20 +40,15 @@ class Solution(object):
             return False
         
         slow = head
-        if head.next == None or head.next.next == None:
-            fast = None
-        else:
-            fast = head.next.next 
+        fast = head
         
         
-        while fast != None:
+        while fast != None and fast.next != None and fast.next.next != None:
+            slow = slow.next
+            fast = fast.next.next
             if slow == fast:
                 return True
-            slow = slow.next
-            if fast.next == None or fast.next.next == None:
-                fast = None
-            else:
-                fast = fast.next.next
+                
         return False
         
             
