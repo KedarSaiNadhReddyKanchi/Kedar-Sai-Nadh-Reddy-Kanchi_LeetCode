@@ -3,23 +3,23 @@ class TimeMap:
     def __init__(self):
         self.runningObject = {}
         
-#     def bubbleSort(self , key , timestampInQuestion):
-#         start = 0
-#         end = len(self.runningObject[key]["previous_timestamps"])
-#         temp = end
-#         nearest_timestamp = None
-#         while start <= end:
-#             mid = int((start + end) / 2)
-#             if mid >= temp:
-#                 break
-#             recorded_timestamp = self.runningObject[key]["previous_timestamps"][mid]
-#             if  recorded_timestamp > timestampInQuestion:
-#                 end = mid - 1
-#             else:
-#                 start = mid + 1
-#                 nearest_timestamp = recorded_timestamp
-        
-#         return nearest_timestamp
+    def bubbleSort(self , key , timestampInQuestion):
+        start = 0
+        end = len(self.runningObject[key]["previous_timestamps"])
+        temp = end
+        nearest_timestamp = None
+        while start < end:
+            mid = int((start + end) / 2)
+            if mid >= temp:
+                break
+            recorded_timestamp = self.runningObject[key]["previous_timestamps"][mid]
+            if recorded_timestamp <= timestampInQuestion:
+                start = mid + 1
+                nearest_timestamp = recorded_timestamp
+            else:
+                end = mid
+                
+        return nearest_timestamp
     
     def linearSearch(self, key , timestampInQuestion):
         highestpossibleTimeStamp = None
@@ -58,8 +58,8 @@ class TimeMap:
                     value = self.runningObject[key]["timestamp_prev"] 
                     return self.runningObject[key][value]
                 
-                # timestampToReturn = self.bubbleSort(key , timestamp)
-                timestampToReturn = self.linearSearch(key , timestamp)
+                timestampToReturn = self.bubbleSort(key , timestamp)
+                # timestampToReturn = self.linearSearch(key , timestamp)
                 if (timestampToReturn != None) and (timestampToReturn <= timestamp):
                     return self.runningObject[key][timestampToReturn]
                 else:
