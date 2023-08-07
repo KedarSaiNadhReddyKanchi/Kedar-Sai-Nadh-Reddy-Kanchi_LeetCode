@@ -1,4 +1,5 @@
-from collections import OrderedDict
+import collections
+
 class LRUCache(object):
 
     def __init__(self, capacity):
@@ -6,7 +7,7 @@ class LRUCache(object):
         :type capacity: int
         """
         self.capacity = capacity
-        self.dic = OrderedDict()
+        self.dic = collections.OrderedDict()
         
 
     def get(self, key):
@@ -17,8 +18,12 @@ class LRUCache(object):
         if key not in self.dic:
             return -1
         
-        self.dic[key] = self.dic.pop(key)
-        return self.dic[key]
+        # In Python 2.7, use `move_to_end` equivalent logic
+        value = self.dic[key]
+        del self.dic[key]
+        self.dic[key] = value
+        
+        return value
         
 
     def put(self, key, value):
@@ -28,17 +33,8 @@ class LRUCache(object):
         :rtype: None
         """
         if key in self.dic:
-            self.dic.pop(key)
-        elif len(self.dic) >= self.capacity:
-            # Remove the least recently used item (first item in OrderedDict)
-            self.dic.popitem(last=False)
+            del self.dic[key]
         
-        # Add the new key-value pair and move it to the end
         self.dic[key] = value
-        
-
-
-# Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)
+        if len(self.dic) > self.capacity:
+            self.dic.popitem(last=False)
