@@ -1,3 +1,4 @@
+import heapq
 class Solution:
     
     def calculateEuclideanDistance(self , point):
@@ -5,19 +6,40 @@ class Solution:
         return math.sqrt(((xcor * xcor) + (ycor * ycor)))
     
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        N = len(points)
-        dists = []
+        
+        # APPROACH USING HEAPS
+        minheap = []
+        heapq.heapify(minheap)
+        
         for point in points:
-            dists.append(self.calculateEuclideanDistance(point))
+            distanceFromOrigin = self.calculateEuclideanDistance(point)
+            heapq.heappush(minheap , [distanceFromOrigin , point])
+        
+        result = []
+        # print(minheap)
+        while k > 0:
+            result.append(heapq.heappop(minheap)[1])
+            k = k - 1
+        
+        return result
             
-        dists.sort()
-        print(dists)
-        distK = dists[k-1];
-        print(distK)
+
+        # ONE APPROACH BEFORE I LEARNED HEAPS
+#         N = len(points)
+#         dists = []
+#         for point in points:
+#             dists.append(self.calculateEuclideanDistance(point))
+            
+#         dists.sort()
+#         print(dists)
+#         distK = dists[k-1];
+#         print(distK)
         
-        ans = []
-        for point in points:
-            if self.calculateEuclideanDistance(point) <= distK:
-                ans.append(point)
+#         ans = []
+#         for point in points:
+#             if self.calculateEuclideanDistance(point) <= distK:
+#                 ans.append(point)
         
-        return ans
+#         return ans
+
+            
