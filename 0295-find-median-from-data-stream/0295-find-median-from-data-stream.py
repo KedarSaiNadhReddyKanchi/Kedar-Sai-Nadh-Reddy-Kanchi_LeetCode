@@ -1,51 +1,52 @@
+import heapq
 class MedianFinder:
 
     def __init__(self):
-        self.hashmap = {}
-        self.count = 0
-        self.numbers = []
+        # to store the larger half of the numbers
+        self.minheap = []
+        heapq.heapify(self.minheap)
+        
+        # to store the smaller half of the numbers
+        self.maxheap = []
+        heapq.heapify(self.maxheap)
+        
+        self.runningMedian = None
+        
         
 
     def addNum(self, num: int) -> None:
-        if len(self.numbers) == 0:
-            self.numbers.append(num)
-        elif len(self.numbers) == 1:
-            if num >= self.numbers[0]:
-                self.numbers.append(num)
-            else:
-                temp = self.numbers[0]
-                self.numbers.append(temp)
-                self.numbers[0] = num
-        else:
-            position = 0
-            for number in self.numbers:
-                if number > num:
-                    break
-                position = position + 1
-            # print("position - " , position)
-            self.numbers.insert((position), num)
         
-        self.count = self.count + 1
+        # as per viewed solution
+        
+        if len(self.minheap) == 0 and len(self.maxheap) == 0:
+            # step 1 - add the new number to the maxheap
+            heapq.heappush(self.maxheap , (-1 * num))
+            self.runningMedian = num
+        else:
+            # step 1 - add the new number to the maxheap
+            heapq.heappush(self.maxheap , (-1 * num))
+            
+            # step 2 : now since a new element is added to the maxheap
+            # we need to remove the highest element from the maxheap and then add it to the min heap
+            popnum = heapq.heappop(self.maxheap)
+            heapq.heappush(self.minheap , (-1 * popnum))
+            
+            # step 3: we need to make sure that the length of the minheap is less than/equal to that of the maxheap
+            # so after step 2 , the minheap might contain more elements than maxheap
+            # so we need to pop the top element from the min heap and push it to the maxheap
+            if len(self.minheap) > len(self.maxheap):
+                popnum = heapq.heappop(self.minheap)
+                heapq.heappush(self.maxheap , (-1 * popnum))
                 
+#         print("self.minheap = ", self.minheap)
+#         print("self.maxheap = " , self.maxheap)
         
 
     def findMedian(self) -> float:
-        if self.count % 2 == 0:
-            # the total number of elements in the data stream is even
-            firstMid = int(self.count / 2)
-            secondMid = firstMid - 1
-            # print(self.numbers)
-            num1 = self.numbers[firstMid]
-            num2 = self.numbers[secondMid]
-            sumOfTwoNums = num1 + num2
-            median = sumOfTwoNums / 2
-            # print(num1 , " " , num2 , " " , sum , " " , median)
-            return median
+        if len(self.maxheap) > len(self.minheap):
+            return (-1 * self.maxheap[0])
         else:
-            # the total number of elements in the data stream is odd
-            mid = int(self.count / 2)
-            # print(mid , " " , self.count)
-            return self.numbers[mid]
+            return ((-1 * self.maxheap[0]) + self.minheap[0]) / 2
         
 
 
