@@ -1,6 +1,10 @@
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         
+        # totallength = len(s)
+        # if totallength % 2 != 0 or totallength % 3 != 0 or totallength % 5 != 0:
+        #     return False
+        
         partition = []
         strlist = list(s)
         # print(strlist)
