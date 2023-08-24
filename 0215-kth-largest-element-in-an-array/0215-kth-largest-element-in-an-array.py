@@ -8,18 +8,29 @@ class Solution(object):
         :rtype: int
         """
         
-        maxHeap = []
-        heapq.heapify(maxHeap)
+#         maxHeap = []
+#         heapq.heapify(maxHeap)
+        
+#         for num in nums:
+#             heapq.heappush(maxHeap , (-1 * num))
+        
+#         popNum = None
+        
+#         while k > 0:    
+#             popNum = heapq.heappop(maxHeap)
+#             k = k - 1
+            
+#         return (-1 * popNum)
+
+        minheap = []
+        heapq.heapify(minheap)
         
         for num in nums:
-            heapq.heappush(maxHeap , (-1 * num))
+            heapq.heappush(minheap , num)
+            if len(minheap) > k:
+                heapq.heappop(minheap)
         
-        popNum = None
-        
-        while k > 0:    
-            popNum = heapq.heappop(maxHeap)
-            k = k - 1
+        return minheap[0]
             
-        return (-1 * popNum)
         
         
