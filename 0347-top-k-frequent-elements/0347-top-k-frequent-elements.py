@@ -1,35 +1,34 @@
+import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
-        sortedlist = sorted(nums)
-        keyvalueCountList = []
+        hashmap = {}
         
-        prevnum = None
-        count = 0
-        for number in sortedlist:
-            if prevnum == None:
-                prevnum = number
-                count = count + 1
-            elif prevnum == number:
-                count = count + 1
-            elif prevnum != number:
-                keyvalueCountList.append([count , prevnum])
-                prevnum = number
-                count = 0
-                count = count + 1
+        for num in nums:
+            if num not in hashmap:
+                hashmap[num] = 1
             else:
-                continue
-                
-        if count > 0:
-            keyvalueCountList.append([count , prevnum])
-            
-        keyvalueCountList.sort(key=lambda k: (k[0], k[1]), reverse=True)
-        output = []
+                hashmap[num] = hashmap[num] + 1
         
-        for pair in (keyvalueCountList[0 : k]):
-            output.append(pair[1])
+    
+        minheap = []
+        heapq.heapify(minheap)
         
-        return output
+        for key in hashmap:
+            heapq.heappush(minheap , [hashmap[key] , key] )
+            if len(minheap) > k:
+                heapq.heappop(minheap)
+        
+        results = []
+        
+        while k > 0:
+            value = heapq.heappop(minheap)
+            results.append(value[1])
+            k = k - 1
+        
+        return results
+        
+        
                 
                 
             
