@@ -14,11 +14,9 @@ class Solution:
             if haystack[haystack_pointer] == needle[needle_pointer]:
                 if needle_pointer == 0:
                     last_haystack_pointer = haystack_pointer
-                    print(last_haystack_pointer)
                     
                 needle_pointer = needle_pointer + 1
                 substring_length_found = substring_length_found + 1
-                print("substring_length_found = " , substring_length_found)
                 if substring_length_found == needle_length:
                     return last_haystack_pointer
                 else:
