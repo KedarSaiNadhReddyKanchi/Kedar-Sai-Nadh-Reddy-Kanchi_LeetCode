@@ -4,62 +4,49 @@ class Solution:
         Do not return anything, modify nums1 in-place instead.
         """
         
-        if n == 0:
-            position = len(nums1) - 1
-            while position >= m:
-                del nums1[position]
-                position = position - 1
+#         if m == 0:
+#             for position , num in enumerate(nums2):
+#                 nums1[position] = num
+#             current_length = len(nums1)
+#             position = current_length - 1
+#             while position > n:
+#                 del nums1[position]
         
-        if m == 0:
-            position = len(nums2) - 1
-            while position >= 0:
-                nums1.insert(0 , nums2[position])
-                position = position - 1
-            print(nums1)
-                
-            position = len(nums1) - 1
-            while position >= m:
-                del nums1[position]
-                position = position - 1
+#         if n == 0:
+#             position = len(nums1) - 1
+#             while position > m:
+#                 del nums1[position]
         
-        nums1_pointer1 = 0
-        nums2_pointer2 = 0
+        position1 = 0
+        position2 = 0
+        insertion_point = 0
         
-        nums1_modified_length = m
-        # nums1_sliced = nums1[0 : m]
-        # print(nums1_sliced)
-        # nums1 = nums1_sliced
-        pivot_point = m
+        numscopy = nums1[0 : m]
         
-        while ((nums1_pointer1 < (m + n)) and (nums2_pointer2 < n) and (nums1_pointer1 < nums1_modified_length) ):
-            nums1_value1 = nums1[nums1_pointer1]
-            nums2_value2 = nums2[nums2_pointer2]
-            
-            if nums1_value1 > nums2_value2:
-                nums1.insert(nums1_pointer1 , nums2_value2)
-                nums2_pointer2 = nums2_pointer2 + 1
-                nums1_modified_length = nums1_modified_length +  1
-                pivot_point = pivot_point + 1
-                nums1_pointer1 = nums1_pointer1 + 1
-                if nums1_pointer1 >= pivot_point:
-                    break
+        while position1 < m and position2 < n:
+            value1 = numscopy[position1]
+            value2 = nums2[position2]
+            if value1 <= value2 :
+                position1 = position1 + 1
+                nums1[insertion_point] = value1
+                insertion_point = insertion_point + 1
             else:
-                nums1_pointer1 = nums1_pointer1 + 1
-                if nums1_pointer1 >= pivot_point:
-                    break
+                nums1[insertion_point] = value2
+                position2 = position2 + 1
+                insertion_point = insertion_point + 1
+        
+        if position1 < m and position2 >= n:
+            while position1 < m:
+                nums1[insertion_point] = numscopy[position1]
+                position1 = position1 + 1
+                insertion_point = insertion_point + 1
+        
+        if position1 >= m and position2 < n:
+            while position2 < n:
+                nums1[insertion_point] = nums2[position2]
+                position2 = position2 + 1
+                insertion_point = insertion_point + 1
                 
         
-        if nums2_pointer2 < n:
-            while nums2_pointer2 < n:
-                nums1.insert(nums1_pointer1 , nums2[nums2_pointer2])
-                nums2_pointer2 = nums2_pointer2 + 1
-                nums1_pointer1 = nums1_pointer1 + 1
         
-        position = len(nums1) - 1
-        while position >= (m + n):
-            del nums1[position]
-            position = position - 1
-            
-
-                
         
