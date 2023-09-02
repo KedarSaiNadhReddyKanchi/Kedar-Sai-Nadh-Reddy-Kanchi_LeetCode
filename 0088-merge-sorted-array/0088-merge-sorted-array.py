@@ -4,49 +4,27 @@ class Solution:
         Do not return anything, modify nums1 in-place instead.
         """
         
-#         if m == 0:
-#             for position , num in enumerate(nums2):
-#                 nums1[position] = num
-#             current_length = len(nums1)
-#             position = current_length - 1
-#             while position > n:
-#                 del nums1[position]
+        pointer1 = m - 1
+        pointer2 = n - 1
+        writerpointer = m + n -1
         
-#         if n == 0:
-#             position = len(nums1) - 1
-#             while position > m:
-#                 del nums1[position]
-        
-        position1 = 0
-        position2 = 0
-        insertion_point = 0
-        
-        numscopy = nums1[0 : m]
-        
-        while position1 < m and position2 < n:
-            value1 = numscopy[position1]
-            value2 = nums2[position2]
-            if value1 <= value2 :
-                position1 = position1 + 1
-                nums1[insertion_point] = value1
-                insertion_point = insertion_point + 1
+        while writerpointer >= 0:
+            if pointer1 >= 0 and pointer2 >= 0:
+                value1 = nums1[pointer1]
+                value2 = nums2[pointer2]
+                if value1 >= value2:
+                    nums1[writerpointer]  = value1
+                    pointer1 = pointer1 - 1
+                else:
+                    nums1[writerpointer] = value2
+                    pointer2 = pointer2 - 1
+            elif pointer1 >= 0:
+                nums1[writerpointer] = nums1[pointer1]
+                pointer1 = pointer1 - 1
             else:
-                nums1[insertion_point] = value2
-                position2 = position2 + 1
-                insertion_point = insertion_point + 1
-        
-        if position1 < m and position2 >= n:
-            while position1 < m:
-                nums1[insertion_point] = numscopy[position1]
-                position1 = position1 + 1
-                insertion_point = insertion_point + 1
-        
-        if position1 >= m and position2 < n:
-            while position2 < n:
-                nums1[insertion_point] = nums2[position2]
-                position2 = position2 + 1
-                insertion_point = insertion_point + 1
-                
-        
+                nums1[writerpointer] = nums2[pointer2]
+                pointer2 = pointer2 - 1
+            
+            writerpointer = writerpointer - 1
         
         
