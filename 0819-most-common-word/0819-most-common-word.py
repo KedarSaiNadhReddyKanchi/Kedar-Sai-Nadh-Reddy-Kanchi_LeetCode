@@ -30,7 +30,6 @@ class Solution:
             
             paragraph = paragraph.lower()
             start_point = 0
-            listOfWords = []
             space_index = 0
             unbanned_words = {}
             flag = False
@@ -42,7 +41,6 @@ class Solution:
                 if character in special_characters_hashmap or character == "'" or character == '"' or character == " ":
                     if temp_word_length > 0:
                         word = ''.join(temp_word)
-                        listOfWords.append(word)
                         temp_word = []
                         temp_word_length = 0
                         flag = True
@@ -68,7 +66,6 @@ class Solution:
                 
             if len(temp_word) > 0:
                 word = ''.join(temp_word)
-                listOfWords.append(word)
                 temp_word = []
                 if word not in hashmap:
                     if word not in unbanned_words:
@@ -79,9 +76,7 @@ class Solution:
                     if current_max < unbanned_words[word]:
                         current_max = unbanned_words[word]
                         output_word = word
-            
-            print(listOfWords)
-            print(output_word , "  = " , current_max)
+
             return output_word
 
         
