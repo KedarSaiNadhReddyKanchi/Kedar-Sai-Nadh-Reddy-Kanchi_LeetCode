@@ -25,10 +25,7 @@ class Solution:
                 currentPlayer = "B"
             else:
                 currentPlayer = "A"
-        
-        print(game)
-        print(gameEmptyCells)
-        print(gameColumnEmptyCells)
+    
         
         for position , row in enumerate(game):
             if gameEmptyCells[position] == 0:
@@ -63,8 +60,7 @@ class Solution:
                 
                 if count == 3:
                     return prevPlayer
-        
-        print("gameDiagonalCellsCovered = "  , gameDiagonalCellsCovered)
+
         if True:
             prevPlayer = game[0][0]
             if prevPlayer != None:
