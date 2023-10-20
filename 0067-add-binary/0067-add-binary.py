@@ -22,14 +22,8 @@ class Solution:
             
             small_string_length = alen
             big_string_length = blen
-            
-        print("small_string - ", small_string)
-        print("big_string - ", big_string)
-        print("small_string_length - ", small_string_length)
-        print("big_string_length - ", big_string_length)
         
         binary_sum = ["0"] * (big_string_length + 1)
-        print("binary_sum - ", binary_sum)
         binary_sum_pointer = big_string_length;
         
         small_position = small_string_length - 1
@@ -42,7 +36,6 @@ class Solution:
             
             num1 = int(small_string[small_position])
             num2 = int(big_string[big_position])
-            print ("num1 = ", num1, " and num2 = ", num2)
             
             if carry == 0:
                 if num1 == 1 and num2 == 1:
@@ -85,11 +78,6 @@ class Solution:
             small_position = small_position - 1
             big_position = big_position - 1
         
-        print("binary_sum - ", binary_sum)
-        print("binary_sum_pointer - ", binary_sum_pointer)
-        print("carry - ", carry)
-        print("big_position - ", big_position)
-        
         if big_position >= 0:
             while big_position >= 0:
                 num1 = int(big_string[big_position])
@@ -112,7 +100,6 @@ class Solution:
                 big_position = big_position - 1
         
         binary_sum[binary_sum_pointer] = str(carry)
-        print("binary_sum - ", binary_sum)
         
         if binary_sum[0] == "0":
             return "".join(binary_sum[1:])
