@@ -20,7 +20,6 @@ class Solution:
                 leastPrice2 = price
         
         total_price_sum = leastPrice1 + leastPrice2
-        print(f"leastPrice1 = {leastPrice1} and leastPrice2 = {leastPrice2}, sum = {total_price_sum}")
         
         if (money >= total_price_sum):
             return (money - total_price_sum)
