@@ -23,7 +23,6 @@ class Solution:
             x_temp = x
             y_temp = y
             point = "" + str(x_temp) + "," + str(y_temp)
-            print(point)
             if point not in hash_map:
                 hash_map[point] = 1
             else:
