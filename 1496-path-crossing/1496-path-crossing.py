@@ -4,13 +4,12 @@ class Solution:
         hash_map = {
             "0,0": 1
         }
-        pathlist = list(path)
         
         x = 0
         y = 0
         overlap = False
         
-        for direction in pathlist:
+        for direction in path:
             if direction == "N":
                 y = y + 1
             elif direction == "E":
