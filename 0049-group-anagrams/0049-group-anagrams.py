@@ -19,7 +19,7 @@ class Solution:
             wordlist.sort()
             new_list.append("".join(wordlist))
         
-        print(new_list)
+        #print(new_list)
         
         hash_map = {}
         for item1, item2 in zip(strs, new_list):
@@ -27,13 +27,13 @@ class Solution:
                 hash_map[item2] = []
             hash_map[item2].append(item1)
         
-        print(hash_map)
+        #print(hash_map)
         
         final_list = []
         for value in hash_map.values():
             final_list.append(value)
         
-        print(final_list)
+        #print(final_list)
         return final_list
                 
         
