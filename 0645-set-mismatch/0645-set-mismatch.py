@@ -1,8 +1,6 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         
-        # nums.sort()
-        # print(nums)
         totalLength = len(nums)
         largestNumber = totalLength
         
@@ -20,9 +18,7 @@ class Solution:
             else:
                 repeatedNumber = num
         
-        print(hashmap)
         result = [repeatedNumber]
         for key in hashmap.keys():
             result.append(key)
-        print(result)
         return result
