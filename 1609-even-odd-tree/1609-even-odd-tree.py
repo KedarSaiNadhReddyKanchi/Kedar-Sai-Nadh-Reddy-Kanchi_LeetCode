@@ -25,7 +25,7 @@ class Solution:
             node , level = queue_temp.pop(0)
             
             # printing out the current node at the top of the queue - level order traversal print
-            print(f"level = {level} => node value = {node.val}")
+            # print(f"level = {level} => node value = {node.val}")
             
             # now for the popped node we need to append the left child of the node to the queue
             # we need to append the left child first 
@@ -79,7 +79,6 @@ class Solution:
                     flag = False
                     break
 
-        print(flag)
         return flag
                 
         
