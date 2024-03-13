@@ -15,10 +15,7 @@ class Solution:
                     oddsum = oddsum - 1
                 else:
                     oddsum = oddsum + 1
-        
-        print(hashmap)
-        print(evensum)
-        print(oddsum)
+
         if oddsum > 0:
             return evensum + 1
         else:
