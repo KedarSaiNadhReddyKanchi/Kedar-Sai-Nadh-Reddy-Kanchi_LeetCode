@@ -30,10 +30,8 @@ class Solution:
                         head = temp
                         flag = False
                         temp = prev
-                    print(head)
+
                 else:
-                    print("intermediary print for else block")
-                    print(prevswapnode)
                     followingnode = temp.next
                     prev.next = followingnode
                     temp.next = prev
@@ -41,8 +39,6 @@ class Solution:
                     prevswapnode.next = temp
                     prevswapnode = prev
                     temp = prev
-                    print(head)
-        
-        print(head)
+
         return head
         
