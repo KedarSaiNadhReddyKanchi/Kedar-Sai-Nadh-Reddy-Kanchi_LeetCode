@@ -17,9 +17,7 @@ class Solution:
                     previous_character = " "
             else:
                 previous_character = character
-            print(f"segment_count = {segment_count} and for character = {character}")
         
-        print(f"previous_character = {previous_character}")
         if previous_character != " ":
             return (segment_count + 1)
         return segment_count
