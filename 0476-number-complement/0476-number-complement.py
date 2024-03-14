@@ -26,9 +26,5 @@ class Solution:
             value = bit * math.pow(2, multiplier)
             complement = complement + value
             multiplier = multiplier + 1
-            
-
-        print(reversed_binary_num)
-        print(complement)
 
         return (int)(complement)
