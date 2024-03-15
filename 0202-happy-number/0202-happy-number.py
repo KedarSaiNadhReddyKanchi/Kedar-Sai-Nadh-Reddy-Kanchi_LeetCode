@@ -4,6 +4,9 @@ class Solution:
         if n == 1:
             return True
         
+        if n < 10:
+            n = n * 10
+        
         new_value = 0 
         upper_limit = math.pow(2, 31)
         first_iteration = True
