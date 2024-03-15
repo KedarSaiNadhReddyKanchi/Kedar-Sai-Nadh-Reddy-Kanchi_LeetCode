@@ -30,7 +30,7 @@ class Solution:
                 break
             
             iteration_count = iteration_count + 1
-            if iteration_count > 1000:
+            if iteration_count > 100:
                 break
         
         return flag
