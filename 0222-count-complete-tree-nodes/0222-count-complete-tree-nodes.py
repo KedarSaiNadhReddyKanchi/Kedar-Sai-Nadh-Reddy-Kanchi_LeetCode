@@ -6,29 +6,7 @@
 #         self.right = right
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        
         if root is None:
             return 0
-        
-        queue = []
-        queue.append(root)
-        size = 1
-        count = 0
-        
-        while size > 0:
-            poppednode = queue.pop(0)
-            size = size - 1
-            count = count + 1
-            
-            if poppednode.left is not None:
-                queue.append(poppednode.left)
-                size = size + 1
-            
-            if poppednode.right is not None:
-                queue.append(poppednode.right)
-                size = size + 1
-        
-        return count
-                
-            
+        return (self.countNodes(root.left) + self.countNodes(root.right) + 1)
         
