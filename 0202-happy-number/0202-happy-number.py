@@ -32,6 +32,9 @@ class Solution:
             iteration_count = iteration_count + 1
             if iteration_count > 100:
                 break
+                
+            if new_value == n:
+                break
         
         return flag
                 
