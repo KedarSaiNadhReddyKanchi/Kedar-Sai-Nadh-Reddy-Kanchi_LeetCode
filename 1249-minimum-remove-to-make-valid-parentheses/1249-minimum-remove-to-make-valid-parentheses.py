@@ -25,8 +25,6 @@ class Solution:
                 continue
         
         # print(f"left = {left} and right = {right}")
-        print(array)
-        print(problematic_indices)
         
         if left != 0:
             for pair in array:
@@ -36,7 +34,6 @@ class Solution:
         for index in problematic_indices:
             slist[index] = ""
         
-        print(slist)
         result = "".join(slist)
         return result
         
