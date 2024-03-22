@@ -29,11 +29,9 @@ class Solution:
                 queue.append((poppped_node.right , (poppped_node_level + 1)))
                 
             if current_level == poppped_node_level:
-                print(f"node = {poppped_node.val} and poppped_level = {poppped_node_level}")
                 if last_previous_node is not None:
                     last_previous_node.next = poppped_node
             else:
-                print(f"node = {poppped_node.val} and poppped_level = {poppped_node_level} and current_level = {current_level}")
                 current_level = poppped_node_level
                 if last_previous_node is not None:
                     last_previous_node.next = None
