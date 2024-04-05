@@ -10,9 +10,6 @@ class Solution:
             else:
                 hashmap[num] = hashmap[num] + 1
         
-        print(hashmap)
-        print(unique_numbers_count)
-        
         result = []
         while unique_numbers_count > 0:
             row = []
@@ -24,7 +21,6 @@ class Solution:
                         unique_numbers_count = unique_numbers_count - 1
             result.append(row)
         
-        print(result)
         return result
                 
             
