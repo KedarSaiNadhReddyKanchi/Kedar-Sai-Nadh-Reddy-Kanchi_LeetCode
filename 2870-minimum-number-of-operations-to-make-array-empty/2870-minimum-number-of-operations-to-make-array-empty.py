@@ -12,12 +12,8 @@ class Solution:
             else:
                 freq[num] = freq[num] + 1
                 if num in countone:
-                    del countone[num]   
+                    del countone[num]
                     total_count_of_numbers_in_countone = total_count_of_numbers_in_countone - 1
-        
-        print(freq)
-        print(countone)
-        print(total_count_of_numbers_in_countone)
         
         if total_count_of_numbers_in_countone != 0:
             return -1
@@ -42,8 +38,6 @@ class Solution:
                 operationscount = operationscount + temp_by_3 + 1 + 1
             
             total_deletion_operation_counts = total_deletion_operation_counts + operationscount
-            
-            print(f"for key = {key} with freq = {value} needs deletionOperations = {operationscount}")
 
         return total_deletion_operation_counts
             
