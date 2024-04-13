@@ -11,10 +11,8 @@ class Solution:
                 time_count = time_count + ticketCount
                 if position < k:
                     lesser_value_count = lesser_value_count + 1
-        
-        print(f"time_count = {time_count} and lesser_value_count = {lesser_value_count}")
+
         total_time_count = time_count + 1 + k - lesser_value_count
-        print(f"total_time_count = {total_time_count}")
         return total_time_count
                 
         
