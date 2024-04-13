@@ -6,10 +6,8 @@ class Solution:
         
         left_stack = []
         star_stack = []
-        right_stack = []
         
         left_stack_size = 0
-        right_stack_size = 0
         star_stack_size = 0
         
         for position , symbol in enumerate(s):
@@ -31,18 +29,10 @@ class Solution:
                     star_stack.pop(-1)
                     star_stack_size = star_stack_size - 1
                 else:
-                    right_stack.append(position)
-                    right_stack_size = right_stack_size + 1
                     return False
         
         if left_count == 0 and right_count == 0:
             return True
-        
-        print(f"left_count = {left_count} and right_count = {right_count} and star_count = {star_count}")
-        print(f"left_stack = {left_stack}")
-        print(f"star_stack = {star_stack}")
-        print(f"left_stack_size = {left_stack_size}")
-        print(f"star_stack_size = {star_stack_size}")
         
         left_stack_pointer = left_stack_size - 1
         star_stack_pointer = star_stack_size - 1
@@ -61,17 +51,6 @@ class Solution:
             return False
         else:
             return True
-        # if left_count > 0 and right_count == 0:
-        #     if star_count >= left_count:
-        #         return True
-        #     else:
-        #         return False
-        
-#         if left_count == 0 and right_count > 0:
-#             if star_count >= right_count:
-#                 return True
-#             else:
-#                 return False
         
         return False
         
