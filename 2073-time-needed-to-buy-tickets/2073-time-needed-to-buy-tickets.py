@@ -15,7 +15,6 @@ class Solution:
                         tickets_needed_to_buy = tickets_needed_to_buy - 1
                         if tickets_needed_to_buy == 0:
                             break
-            print(f"tickets = {tickets} and time_count = {time_count}")
         
         return time_count
 
