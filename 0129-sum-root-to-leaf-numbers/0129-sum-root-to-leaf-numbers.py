@@ -8,6 +8,12 @@ from collections import deque
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         
+        if root is None:
+            return 0
+        
+        if root.left is None and root.right is None:
+            return root.val
+        
         queue = deque()
         queue.append((root , 1, 0))
         size = 1
