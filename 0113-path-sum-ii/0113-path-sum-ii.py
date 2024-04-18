@@ -25,7 +25,6 @@ class Solution:
         while size > 0:
             poppednode, level, runningvalue, elementslist = queue.popleft()
             size = size - 1
-            print(f"poppednode = {poppednode.val} at level = {level} the runningvalue = {runningvalue} and elementslist = {elementslist}")
             
             if poppednode.left is not None:
                 left_running_value = runningvalue + poppednode.val
@@ -46,7 +45,6 @@ class Solution:
                 if runningvalue == targetSum:
                     elementslist.append(poppednode.val)
                     result.append(elementslist)
-        
-        print(result)
+    
         return result
         
