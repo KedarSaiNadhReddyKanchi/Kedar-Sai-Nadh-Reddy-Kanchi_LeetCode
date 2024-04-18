@@ -67,8 +67,6 @@ class Solution:
             eachnode.left = firstnewnode
             eachnode.right = secondnewnode
         
-        print(root)
-        
         return root
             
             
