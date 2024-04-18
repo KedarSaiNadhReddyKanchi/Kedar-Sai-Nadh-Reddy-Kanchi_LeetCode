@@ -63,13 +63,8 @@ class Solution:
                     self.updateTheVisitedCells(rowIndex, cellIndex)
                     self.previousIslandCell = cellIndex
                     self.islandCount = self.islandCount + 1
-                    
-            print(self.sharingCellBoundariesAlongTheRow)
-            print(self.sharingCellBoundariesInThePreviousRows)
-            
+
             total_perimeter_for_the_row = self.calculateRowPerimeter()
             total = total + total_perimeter_for_the_row
-            print(f"running total = {total}")
-            print()
-            
+
         return total
