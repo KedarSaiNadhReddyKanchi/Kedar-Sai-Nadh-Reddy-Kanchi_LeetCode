@@ -1,21 +1,20 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         
-        end_point = len(nums) - 1
-        index = end_point - 1
-        intermediary_point = end_point
+        nums_length = len(nums)
+        end = nums_length - 1
+        start = 0 
+        last_reachable_index = end
         
-        while (index >= 0):
-            value = nums[index]
-            # print(f"value = {value} -- index = {index}")
-            if ((index + value) >= intermediary_point):
-                intermediary_point = index
-                # print(f"intermediary_point = {intermediary_point} -- index = {index}")
-            index = index - 1
-            
-        if intermediary_point == 0:
+        for position in range ((end - 1), -1, -1):
+            max_reachable_position = position + nums[position]
+            if max_reachable_position >= last_reachable_index:
+                last_reachable_index = position
+        
+        print(last_reachable_index)
+        if (last_reachable_index == 0):
             return True
-        
+    
         return False
             
         
