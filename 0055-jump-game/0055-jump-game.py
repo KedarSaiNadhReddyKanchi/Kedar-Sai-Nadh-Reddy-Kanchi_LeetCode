@@ -11,7 +11,6 @@ class Solution:
             if max_reachable_position >= last_reachable_index:
                 last_reachable_index = position
         
-        print(last_reachable_index)
         if (last_reachable_index == 0):
             return True
     
