@@ -29,7 +29,6 @@ class Solution:
                         second_fruit_type = left
                         
                 else:
-                    print(f"left = {left} and right = {right} and running_count = {running_count}")
                     to_be_removed_value = fruits[first_fruit_type]
                     if running_count > max_count:
                         max_count = running_count
@@ -37,11 +36,7 @@ class Solution:
                     del hashmap[to_be_removed_value]
                     right = second_fruit_type
                     first_fruit_type = right
-                    # second_fruit_type = left
-                    # hashmap[left_value] = 1
-                    # running_count = running_count + 1
                     left = right
-                    print(f"updated_left = {left}")
                     buckets = buckets + 1
                     
                     running_count = 1
@@ -52,7 +47,6 @@ class Solution:
                 running_count = running_count + 1
             
             left = left + 1
-            # print(f"moving_left = {left}")
             
         
         if running_count > max_count:
