@@ -25,9 +25,9 @@ class Solution:
         num2_set_bits_count , num2_bit_representation = self.countBits(num2)
         num2_bit_representation_size = len(num2_bit_representation)
         
-        print(num2_set_bits_count)
-        print(num2_bit_representation)
-        print(num2_bit_representation_size)
+        # print(num2_set_bits_count)
+        # print(num2_bit_representation)
+        # print(num2_bit_representation_size)
 
         num1_set_bits_count , num1_bit_representation = self.countBits(num1)
         num1_bit_representation_size = len(num1_bit_representation)
@@ -40,9 +40,9 @@ class Solution:
         
         num1_bit_representation_size = len(num1_bit_representation)
         
-        print(num1_set_bits_count)
-        print(num1_bit_representation)
-        print(num1_bit_representation_size)
+        # print(num1_set_bits_count)
+        # print(num1_bit_representation)
+        # print(num1_bit_representation_size)
 
         if num1_set_bits_count == num2_set_bits_count:
             return num1
@@ -55,7 +55,7 @@ class Solution:
                     num1_bit_representation[pointer] = 1
                     difference = difference - 1
                 pointer = pointer - 1
-            print(f"new num1_bit_representation = {num1_bit_representation}")
+            # print(f"new num1_bit_representation = {num1_bit_representation}")
             formed_number = self.formNumberFromTheBitRepresentation(num1_bit_representation, num1_bit_representation_size)
             return formed_number
 
