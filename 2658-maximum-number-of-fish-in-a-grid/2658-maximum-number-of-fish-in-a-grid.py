@@ -8,8 +8,8 @@ class Solution:
 
     def recursiveFunction(self, row , column, visited):
         # base condition -- if already cell has been processed
-        # if (row , column) in self.processed_cell_with_maximum_count:
-        #     return self.processed_cell_with_maximum_count[(row , column)]
+        if (row , column) in self.processed_cell_with_maximum_count:
+            return self.processed_cell_with_maximum_count[(row , column)]
 
         # get the adjacency cell positions
         same_row , right_column = row, column + 1
