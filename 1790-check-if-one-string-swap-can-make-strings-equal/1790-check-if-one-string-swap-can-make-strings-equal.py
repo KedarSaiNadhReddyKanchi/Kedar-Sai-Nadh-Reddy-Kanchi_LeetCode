@@ -1,8 +1,9 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
         changes = 0
-        s1_map = {}
-        s2_map = {}
+        alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        s1_map = {character : 0 for character in alphabets}
+        s2_map = {character : 0 for character in alphabets}
         
         for character1 , character2 in zip(s1 , s2):
             if character1 == character2:
@@ -11,12 +12,6 @@ class Solution:
                 changes = changes + 1
                 if changes == 3:
                     return False
-                
-            if character1 not in s1_map:
-                s1_map[character1] = 0
-            
-            if character2 not in s2_map:
-                s2_map[character2] = 0
             
             s1_map[character1] = s1_map[character1] + 1
             s2_map[character2] = s2_map[character2] + 1
