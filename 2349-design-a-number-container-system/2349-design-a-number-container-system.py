@@ -32,37 +32,33 @@ class NumberContainers:
         # now I need to add the index to the number's list of indices
         if number not in self.index_mapping:
             self.index_mapping[number] = []
-    
-        # then push the index into the heap for the number
-        self.index_mapping[number].append(index)
+
+        # Add index to the min heap for this number
+        heapq.heappush(self.index_mapping[number], index)
 
     def find(self, number: int) -> int:
         # if the number is not in the index mapping then return -1
         if number not in self.index_mapping:
             return -1
 
-        # now sort the existing list and assign it back to the number for future purpose
-        self.index_mapping[number].sort(reverse=True)
-        size = len(self.index_mapping[number])
+        # Keep checking top element until we find valid index
+        while self.index_mapping[number]:
+            # get the minimum element from the heap
+            minimum_index = self.index_mapping[number][0]
 
-        while size > 0:
-            # get the mioimum index from the number's memory
-            minimum_index = self.index_mapping[number][-1]
+            # get the number present at the retrieved minimum index
+            number_present_at_the_retrived_minimum_index = self.numbers_container[minimum_index]
 
-            # check if the index returned contains the same value in the numbers container
-            value_at_the_returned_index = self.numbers_container[minimum_index]
-
-            if value_at_the_returned_index == number:
-                # return the minimum index
+            # check if the number in question and the number present at the minimum index are the same or not
+            # if so then return it
+            if number == number_present_at_the_retrived_minimum_index:
                 return minimum_index
             
-            # pop out the current minimum index for the number since it is has been replaced with some other number
-            self.index_mapping[number].pop()
-            size = size - 1
-        
-        del self.index_mapping[number]
+            # or else pop the index from the number's memory map
+            heapq.heappop(self.index_mapping[number])
         
         return -1
+
                 
 # Your NumberContainers object will be instantiated and called as such:
 # obj = NumberContainers()
