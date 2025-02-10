@@ -3,9 +3,13 @@ class Solution:
         # as per the constraint the input is in a format where it is possible to delete all the digits
         # so I would like to use an additional stack
         final_string_stack = []
+       
         digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        digits_set = set()
+        digits_set.update(digits)
+
         for character in s:
-            if character in digits:
+            if character in digits_set:
                 final_string_stack.pop()
             else:
                 final_string_stack.append(character)
