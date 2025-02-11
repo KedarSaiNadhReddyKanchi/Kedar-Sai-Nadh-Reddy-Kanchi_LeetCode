@@ -3,15 +3,23 @@ class Solution:
         size = len(s)
         part_string_size = len(part)
 
-        while size >= part_string_size:
-            # find the index of the part string in the string s
-            index = s.find(part)
-            if index == -1:
-                return s
-            else:
-                start , end = index , index + part_string_size
-                new_string = s[0 : start] + s[end : ]
-                size = size - part_string_size
-                s = new_string
+        final_string_stack = []
+        final_string_size = 0
+
+        for character in s:
+            final_string_stack.append(character)
+            final_string_size = final_string_size + 1
+            if final_string_size >= part_string_size:
+                starting_point = final_string_size - part_string_size
+                final_string = "".join(final_string_stack[starting_point : ])
+                if final_string == part:
+                    count = part_string_size
+                    while count > 0:
+                        final_string_stack.pop()
+                        count = count - 1
+                        final_string_size = final_string_size - 1
         
-        return s
+        final_string = "".join(final_string_stack)
+        return final_string
+
+
