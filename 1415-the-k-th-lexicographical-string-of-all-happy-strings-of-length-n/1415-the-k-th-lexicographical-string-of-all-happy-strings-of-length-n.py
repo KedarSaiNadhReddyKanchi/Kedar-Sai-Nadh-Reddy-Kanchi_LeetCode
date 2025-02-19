@@ -8,7 +8,7 @@ class Solution:
     def recursion(self, string, index):
         if index == self.n:
             # have found a happy string
-            self.solutions.append("".join(string))
+            self.solutions.append(string.copy())
             self.solutions_size = self.solutions_size + 1
             # print("base condition print -- ", string, self.solutions_size)
             if self.solutions_size == self.k:
@@ -52,6 +52,6 @@ class Solution:
         
         # print(self.solutions)
         if self.solutions_size >= k:
-            return self.solutions[-1]
+            return "".join(self.solutions[-1])
         
         return ""
